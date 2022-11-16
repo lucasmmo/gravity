@@ -1,0 +1,48 @@
+version: '3'
+
+
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: docker/jenkins.Dockerfile
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    ports:
+      - 8080:8080
+      - 50000:50000
+
+#   # app:
+#   #   build: 
+#   #     context: .
+#   #     dockerfile: docker/web.Dockerfile
+#   #   restart: always
+#   #   ports:
+#   #     - 8080:8080
+#   #   depends_on:
+#   #     - db
+#   #   env_file:
+#   #     - ".env"
+
+#   db:
+#     image: postgres
+#     restart: always
+#     ports:
+#       - 5432:5432
+#     env_file:
+#       - ".env"
+
+#   # adminer:
+#   #   image: adminer
+#   #   restart: always
+    
+#   #   depends_on:
+#   #     - db
+
+
+
+
+
+
+    
